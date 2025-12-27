@@ -1,0 +1,14 @@
+node_modules
+client/node_modules
+.env
+databases/*.db
+!databases/.gitkeep
+uploads/*
+!uploads/.gitkeep
+OllamaSetup.exe
+.DS_Store
+.adminjs
+dist/
+client/dist/
+.angular/
+.vscode/

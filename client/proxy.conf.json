@@ -1,0 +1,30 @@
+{
+    "/api": {
+        "target": "http://localhost:3000",
+        "secure": false
+    },
+    "/uploads": {
+        "target": "http://localhost:3000",
+        "secure": false
+    },
+    "/fonts": {
+        "target": "http://localhost:3000",
+        "secure": false
+    },
+    "/assets": {
+        "target": "http://localhost:3000",
+        "secure": false
+    },
+    "/images": {
+        "target": "http://localhost:3000",
+        "secure": false
+    },
+    "/css": {
+        "target": "http://localhost:3000",
+        "secure": false
+    },
+    "/js": {
+        "target": "http://localhost:3000",
+        "secure": false
+    }
+}

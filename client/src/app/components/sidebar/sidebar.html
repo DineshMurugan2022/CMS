@@ -1,0 +1,36 @@
+<aside class="w-64 bg-slate-900 text-slate-300 flex flex-col border-r border-slate-800 h-full">
+    <div class="p-4 border-b border-slate-800">
+        <h2 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Pages</h2>
+        <nav class="space-y-1">
+            <button *ngFor="let file of files"
+                class="w-full text-left px-3 py-2 rounded-md text-sm font-medium flex items-center gap-3 transition-colors"
+                [ngClass]="file.dbId === activeFileId ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/30' : 'text-slate-400 hover:bg-slate-800 hover:text-white'"
+                (click)="selectFile(file)">
+                <svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                    </path>
+                </svg>
+                {{ file.name }}
+            </button>
+        </nav>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-4">
+        <h2 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Sections</h2>
+        <div class="space-y-2 text-sm">
+            <ng-container *ngIf="schema?.tables; else noSchema">
+                <button *ngFor="let table of schema.tables"
+                    class="w-full text-left px-3 py-2 rounded md text-slate-400 hover:text-white hover:bg-slate-800 transition-colors flex items-center justify-between group"
+                    [ngClass]="{'bg-slate-800 text-white': table.name === activeTable}"
+                    (click)="selectTable(table.name)">
+                    <span>{{ formatName(table.name) }}</span>
+                    <span class="opacity-0 group-hover:opacity-100 text-slate-600">→</span>
+                </button>
+            </ng-container>
+            <ng-template #noSchema>
+                <p class="text-slate-500 italic text-xs">Select a page to view sections</p>
+            </ng-template>
+        </div>
+    </div>
+</aside>
